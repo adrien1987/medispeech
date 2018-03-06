@@ -6,7 +6,5 @@ class DrugService
   def self.all_drugs(term)
     response = RestClient.get(URL + '?query=' + term)
     JSON.parse(response)
-
   end
-
 end
