@@ -1,2 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Medispeech</h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 offset-sm-4">
+      <div class="form-login">
+        <%= form_tag :search, id: 'drug_search' do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            id: 'drug_search',
+            placeholder: "Paracetamol 1g..."
+          %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <script>
+
+drug_search.addEventListener("keyPress", (event)=> {
+const path = document.getElementById('search-path').dataSet.searchPath
+fetch('/medocs/search')
+.then((data) => {
+  data.forEach((drug) => {
+    const item = `<li>${drug.denomination}</li>`;
+    drug.insertAdjacentHTML("beforeend", item);
+  });
+});
+}
+
+</script> -->
