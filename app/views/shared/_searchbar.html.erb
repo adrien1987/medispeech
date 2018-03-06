@@ -1,0 +1,15 @@
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 offset-sm-4">
+      <div class="form-login">
+        <%= form_tag :root, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            id: 'drug_search',
+            placeholder: "Paracetamol 1g..."
+          %>
+        <% end %>
+      </div>
+    </div>
+  </div>
