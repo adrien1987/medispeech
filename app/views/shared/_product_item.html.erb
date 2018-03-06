@@ -1,0 +1,58 @@
+<div class="product">
+
+  <div class="col-xs-4">
+    <div class='product-body'>
+      <h3><b>Doliprane</b></h3>
+    </div>
+  </div>
+
+  <div class="col-xs-4">
+<!--     <p>Médicament homéopathique</p>
+    <p>Sans ordonnance</p>
+    <p> Voie orale</p> -->
+  </div>
+
+  <div class="col-xs-2">
+    <br>
+    <p>Efficacité</p>
+    <p>Effets secondaires </p>
+  </div>
+  <div class="col-xs-2">
+
+    <% safety = 3 %>
+    <% efficacy = 2 %>
+
+    <div>
+
+      <ul class="list-inline product-controls hidden-sm hidden-xs">
+        <li><a href=""><i class="fa fa-share" style="color:  grey"></i></a></li>
+        <li><a href=""><i class="fa fa-heart" style="color:  grey"></i></a></li>
+      </ul>
+
+      <p>
+        <% 5.times do |star| %>
+
+          <!-- replace with review.safety and delete the safety asignation above -->
+          <% if star < safety %>
+            <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
+          <% else %>
+            <a href=""> <i class="fa fa-star" style="color:  grey"></a></i>
+          <% end %>
+        <% end %>
+      </p>
+
+      <p>
+        <% 5.times do |star| %>
+          <!-- replace with review.efficacy and delete the efficacy asignation above -->
+          <% if star < efficacy %>
+            <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
+          <% else %>
+            <a href=""><i class="fa fa-star" style="color:  grey"></a></i>
+          <% end %>
+        <% end %>
+      </p>
+  </div>
+
+</div>
+
+</div> <!-- end of product div -->
