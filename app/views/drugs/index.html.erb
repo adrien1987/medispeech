@@ -1,9 +1,7 @@
-
-<div class="container">
 <%=render 'shared/searchbar'%>
 <% if params[:query].present? %>
   <% @drugs.each do |drug|  %>
-  <p><%= drug[:denomination] %></p>
+  <%= render 'shared/product_item', drug: drug %>
   <% end %>
-  </div>
+
 <% end %>
