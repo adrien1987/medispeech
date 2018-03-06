@@ -1,0 +1,9 @@
+
+<div class="container">
+<%=render 'shared/searchbar'%>
+<% if params[:query].present? %>
+  <% @drugs.each do |drug|  %>
+  <p><%= drug[:denomination] %></p>
+  <% end %>
+  </div>
+<% end %>
