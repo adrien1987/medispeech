@@ -28,10 +28,10 @@
         <li><a href=""><i class="fa fa-share" style="color:  grey"></i></a></li>
         <% if @codes_cis.include? drug[:codeCIS] %>
           <%= link_to '<i class="fa fa-heart" style="color: #D3473C"></i>'.html_safe,
-          put_in_favorite_path(drug[:codeCIS], params[:query]) %>
+          "/drugs/#{drug[:codeCIS]}/favorites/" %>
         <% else %>
           <%= link_to '<i class="fa fa-heart"></i>'.html_safe,
-          put_in_favorite_path(drug[:codeCIS], params[:query]) %>
+          "/drugs/#{drug[:codeCIS]}/favorites/" %>
         <% end %>
 
       </ul>

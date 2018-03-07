@@ -1,0 +1,30 @@
+<h1>Mon profile</h1>
+
+<p> Name : <%= @user.firstname.capitalize %> <%= @user.lastname.upcase %></p>
+<p> Username : <%= @user.username %> </p>
+<p> Email : <%= @user.email %> </p>
+
+<%= link_to "Modifier mes informations", edit_user_registration_path %>
+
+
+
+<h3>Mes médicaments</h3>
+<% @drugs.each do |drug| %>
+
+  <%= render 'shared/product_item', drug: drug %>
+
+<% end %>
+
+<div class="row">
+  <h3> Mes avis </h3>
+  <ul class="list-group">
+    <% @reviews.each do |review| %>
+
+      <li class="list-group-item">
+        Efficacité <%= review.efficacy %> | sécurité <%= review.security %> | Details <%= review.description %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
