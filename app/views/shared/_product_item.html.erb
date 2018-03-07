@@ -26,7 +26,14 @@
 
       <ul class="list-inline product-controls hidden-sm hidden-xs">
         <li><a href=""><i class="fa fa-share" style="color:  grey"></i></a></li>
-        <li><a href=""><i class="fa fa-heart" style="color:  grey"></i></a></li>
+        <% if @codes_cis.include? drug[:codeCIS] %>
+          <%= link_to '<i class="fa fa-heart" style="color: #D3473C"></i>'.html_safe,
+          put_in_favorite_path(drug[:codeCIS], params[:query]) %>
+        <% else %>
+          <%= link_to '<i class="fa fa-heart"></i>'.html_safe,
+          put_in_favorite_path(drug[:codeCIS], params[:query]) %>
+        <% end %>
+
       </ul>
 
       <p>
