@@ -8,14 +8,15 @@ class DrugsController < ApplicationController
       @drugs = []
       response.each { |drug| @drugs << { codeCIS: drug["codeCIS"], denomination: drug["denomination"]} }
       favorites = Favorite.where(user: current_user)
-      @codes_cis = favorites.collect { |favorite| favorite.code_cis}
+      @codes_cis = favorites.collect { |favorite| favorite.code_cis} #array avec la liste des codes
 
     end
   end
 
   def show
+      @reviews = Review.where(code_cis: params[:code_cis])
       @drug = DrugService.drug(params[:code_cis])
-      # render json: response #affiche le JSON car pas de vue associée
+
   end
 
 
