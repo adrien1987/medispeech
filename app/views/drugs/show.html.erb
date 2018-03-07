@@ -5,3 +5,12 @@
   <li class="list-group-item"><%= @drug["formePharmaceutique"] %></li>
   <li class="list-group-item"><%= @drug["indicationsTherapeutiques"].html_safe %></li>
 </ul>
+<div class="row">
+  <% @reviews.each do |review| %>
+  <ul class="list-group">
+    <li class="list-group-item"><%= review.efficacy %></li>
+    <li class="list-group-item"><%= review.security %></li>
+    <li class="list-group-item"><%= review.description %></li>
+  </ul>
+  <% end %>
+</div>
