@@ -1,1 +1,7 @@
-<h1><%= @drug["denomination"] %></h1>
+<!-- <h1><%= @drug["denomination"] %></h1> -->
+
+<ul class="list-group">
+  <li class="list-group-item"><%= @drug["denomination"] %></li>
+  <li class="list-group-item"><%= @drug["formePharmaceutique"] %></li>
+  <li class="list-group-item"><%= @drug["indicationsTherapeutiques"].html_safe %></li>
+</ul>
