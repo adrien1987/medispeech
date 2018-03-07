@@ -1,0 +1,19 @@
+<h1> New Review </h1>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 ">
+      <div class="form-new-review">
+        <h2>New Review</h2>
+        <%= simple_form_for @review, url: review_create_path(':code_cis') do |f| %>
+          <div class="form-inputs">
+            <%= f.input :efficacy, label: 'Efficacité', as: :integer %>
+            <%= f.input :security, label: 'Effets secondaires', as: :integer %>
+            <%= f.input :description, as: :text %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, label: "Create Review", url: drug_show_path, class:'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

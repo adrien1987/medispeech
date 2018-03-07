@@ -4,8 +4,9 @@ class ReviewsController < ApplicationController
 		@review = Review.new
 	end
 
-	def create
+	def create		 
 		@review = Review.new(review_params)
+		@review.code_cis = params[:code_cis]
 		@review.user = current_user
 		if @review.save
       # redirect_to profile_path(@review.user)
@@ -23,6 +24,13 @@ class ReviewsController < ApplicationController
     else
       render :edit
     end
+	end
+
+
+	private
+
+	def review_params
+		params.require(:review).permit(:user_id, :efficacy, :security, :description)
 	end
 
 end
