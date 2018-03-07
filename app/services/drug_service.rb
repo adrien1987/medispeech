@@ -4,7 +4,7 @@ class DrugService
   URL = 'https://open-medicaments.fr/api/v1/medicaments'
 
   def self.all_drugs(term)
-    response = RestClient.get(URL + '?query=' + term)
+    response = RestClient.get(URL + '?query=' + I18n.transliterate(term))
     JSON.parse(response)
   end
 
