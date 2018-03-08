@@ -1,17 +1,7 @@
 
-    <div class="card">
-      <div class="card-body scrolling">
+    <div class="card informationmedoc">
+      <div class="card-body">
         <h5 class="card-title">Indications thérapeutiques</h5>
         <p class="card-text "><%= @drug["indicationsTherapeutiques"].html_safe %></p>
       </div>
     </div>
-
-<div class="row">
-  <% @reviews.each do |review| %>
-  <ul class="list-group">
-    <li class="list-group-item"><%= review.efficacy %></li>
-    <li class="list-group-item"><%= review.security %></li>
-    <li class="list-group-item"><%= review.description %></li>
-  </ul>
-  <% end %>
-</div>

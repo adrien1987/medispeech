@@ -3,40 +3,41 @@
     <div>
       <%= current_user.username %>
     </div>
+    <div class="secu">
+      <p>Securité</p>
+      <p>
+        <% safety = 3 %>
+        <% efficacy = 2 %>
+        <% 5.times do |star| %>
+        <% if star < safety %>
+        <a href=""><i class="fa fa-star" style="color:  rgb(253, 203, 47)"></a></i>
+        <% else %>
+        <a href=""> <i class="fa fa-star" style="color:  grey"></a></i>
+        <% end %>
+        <% end %>
+      </p>
+    </div>
+    <div class="effi">
+      <p>Efficacité</p>
+      <p>
+        <% 5.times do |star| %>
+        <!-- replace with review.efficacy and delete the efficacy asignation above -->
+        <% if star < efficacy %>
+        <a href=""><i class="fa fa-star" style="color:  rgb(253, 203, 47)"></a></i>
+        <% else %>
+        <a href=""><i class="fa fa-star" style="color:  grey"></a></i>
+        <% end %>
+        <% end %>
+      </p>
+    </div>
     <div>
-      <%=review.created_at%>
+      <%=review.created_at.strftime('%d/%m/%Y à %H:%M')%>
     </div>
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+      <p><%= review.description  %></p>
+      <footer class="blockquote-footer"><%= current_user.username %> le <cite title="Source Title"><%=review.created_at.strftime('%d/%m/%Y à %H:%M')%> </cite></footer>
     </blockquote>
   </div>
 </div>
-
-
-<!--
-
-<div>
-  ici le username
-  date de l'avis
-</div>
-
-<div>
-  les notations
-  commentaire
-</div>
-
-<div>
-
-</div>
-
-
-<h2> Reviews </h2>
-
-
-
-    <li class="list-group-item">
-
-    </li> -->
