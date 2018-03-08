@@ -2,14 +2,15 @@ class ReviewsController < ApplicationController
 
 	def new
 		@review = Review.new
+    @drug = DrugService.drug(params[:code_cis])
 	end
 
-	def create		 
+	def create
 		@review = current_user.reviews.new(review_params)
 		@review.code_cis = params[:code_cis]
 		@review.user = current_user
 		if @review.save
-      redirect_to root_path
+      redirect_to drug_show_path(params[:code_cis])
     else
       render :new
     end
@@ -25,7 +26,6 @@ class ReviewsController < ApplicationController
       render :edit
     end
 	end
-
 
 	private
 

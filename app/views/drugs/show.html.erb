@@ -1,4 +1,3 @@
-<!-- <h1><%= @drug["denomination"] %></h1> -->
 <div class="title">
   <%= @drug["denomination"] %>
 </div>
@@ -10,13 +9,15 @@
   <li class="list-group-item"><%= @drug["indicationsTherapeutiques"].html_safe %></li>
 </ul>
 <div class="row">
-  <% @reviews.each do |review| %>
+  <h2> Reviews </h2>
   <ul class="list-group">
-    <li class="list-group-item"><%= review.efficacy %></li>
-    <li class="list-group-item"><%= review.security %></li>
-    <li class="list-group-item"><%= review.description %></li>
+    <% @reviews.each do |review| %>
+
+      <li class="list-group-item">
+        Efficacité <%= review.efficacy %> | sécurité <%= review.security %> | Details <%= review.description %>
+      </li>
+    <% end %>
   </ul>
-  <% end %>
 </div>
 
 
