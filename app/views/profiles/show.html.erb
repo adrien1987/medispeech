@@ -1,30 +1,75 @@
 <h1>Mon profile</h1>
 
-<p> Name : <%= @user.firstname.capitalize %> <%= @user.lastname.upcase %></p>
-<p> Username : <%= @user.username %> </p>
-<p> Email : <%= @user.email %> </p>
-
-<%= link_to "Modifier mes informations", edit_user_registration_path %>
-
-
+<div class="message">
+<img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+<div class="message-name">
+  <h3><strong><%= @user.username %></strong></h3>
+  <p><%= @user.email %></p>
+</div>
+<div class="message-body">
+  <p><strong>Name</strong></p>
+  <p>
+    <%= @user.firstname.capitalize %> <%= @user.lastname.upcase %>
+  </p>
+</div>
+<div class="message-status">
+  <p class="price"><%= link_to "Modifier mes informations", edit_user_registration_path %></p>
+</div>
+</div>
 
 <h3>Mes médicaments</h3>
+
 <% @drugs.each do |drug| %>
 
-  <%= render 'shared/product_item', drug: drug %>
+  <%= render 'shared/drug_card_item', drug: drug %>
+  <br>
+<% end %>
+
+<h3> Mes avis </h3>
+
+<% i = 0 %>
+
+<% @reviews.each do |review| %>
+
+  <div class="product">
+    <div class='product-upvote'>
+      <div class="product-arrow"></div>
+      <div class='product-count'> <%= i = i +1 %> </div>
+    </div>
+    <div class='product-body'>
+      <h3><%= review.user.username.upcase %></h3>
+      <p><%= review.description %></p>
+    </div>
+    <ul class="list-inline product-controls hidden-sm hidden-xs">
+      <li>Efficacité :
+
+        <% 5.times do |star| %>
+          <% if star < review.efficacy %>
+            <i class="fa fa-star" style="color:  #DAA520"></i>
+          <% else %>
+            <i class="fa fa-star" style="color:  grey"></i>
+          <% end %>
+        <% end %>
+
+      </li>
+      <li>Sécurité :
+
+        <% 5.times do |star| %>
+          <% if star < review.security %>
+            <i class="fa fa-star" style="color:  #DAA520"></i>
+          <% else %>
+            <i class="fa fa-star" style="color:  grey"></i>
+          <% end %>
+        <% end %>
+
+      </li>
+    </ul>
+  </div>
 
 <% end %>
 
-<div class="row">
-  <h3> Mes avis </h3>
-  <ul class="list-group">
-    <% @reviews.each do |review| %>
 
-      <li class="list-group-item">
-        Efficacité <%= review.efficacy %> | sécurité <%= review.security %> | Details <%= review.description %>
-      </li>
-    <% end %>
-  </ul>
-</div>
+
+
 
 
