@@ -1,0 +1,25 @@
+<div class="message">
+
+  <div class="message-name delivrance">
+    <h3>Délivrance</h3>
+    <% if @drug["conditionsPrescriptionDelivrance"].empty? %>
+      <p class="pasordo"><%= "Sans ordonnance" %></p>
+    <% else %>
+      <p class="ordo"><%= @drug["conditionsPrescriptionDelivrance"].first %></p>
+    <% end %>
+  </div>
+  <div class="message-name">
+    <h3>Forme pharmaceutique</h3>
+    <p><%= @drug["formePharmaceutique"]  %></p>
+  </div>
+  <div class="message-name">
+    <h3>Médecine</h3>
+    <p><%= @drug["homeopathie"] == false ? "Allopathie" : @drug["homeopathie"] %></p>
+  </div>
+  <% if @drug["infosGenerique"].present? %>
+  <div class="message-name">
+    <h3>Prix</h3>
+    <p class="price"><%=@drug["infosGenerique"]["autresMedicamentsGroupe"].first["prix"].last %>€</p>
+  </div>
+  <% end %>
+</div>

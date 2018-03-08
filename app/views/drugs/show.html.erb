@@ -1,14 +1,26 @@
-<div class="title">
-  <%= @drug["denomination"] %>
+<!-- <h1><%= @drug["denomination"] %></h1> -->
+<div class="row drugheader">
+  <div class="col-12 col-sm-8 offset-sm-2">
+    <div class="title">
+      <h1><%= @drug["denomination"] %></h1>
+    </div>
+    <div class="avis">
+      <p><%= link_to "Donner mon avis sur ce médicament", review_new_path, class: "btn btn-outline-info" %></p>
+    </div>
+  </div>
 </div>
 
-
-<ul class="list-group">
-  <li class="list-group-item"><%= @drug["denomination"] %></li>
-  <li class="list-group-item"><%= @drug["formePharmaceutique"] %></li>
-  <li class="list-group-item"><%= @drug["indicationsTherapeutiques"].html_safe %></li>
-</ul>
 <div class="row">
+
+  <div class="col-12 col-sm-8">
+  <%=render 'shared/card_info'%>
+  <%=render 'shared/card_infoglobales'%>
+  </div>
+  <div class="col-12 col-sm-4">
+    <%=render 'shared/card_avis'%>
+  </div>
+</div>
+
   <h2> Reviews </h2>
   <ul class="list-group">
     <% @reviews.each do |review| %>
@@ -18,7 +30,3 @@
       </li>
     <% end %>
   </ul>
-</div>
-
-
-<%= link_to "Donner mon avis sur ce médicament", review_new_path %>
