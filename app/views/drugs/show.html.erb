@@ -11,22 +11,14 @@
 </div>
 
 <div class="row">
-
   <div class="col-12 col-sm-8">
-  <%=render 'shared/card_info'%>
-  <%=render 'shared/card_infoglobales'%>
+    <%=render 'shared/card_info'%>
+    <%=render 'shared/card_infoglobales'%>
+    <% @reviews.each do |review| %>
+      <%=render 'shared/card_review', review: review%>
+    <% end %>
   </div>
   <div class="col-12 col-sm-4">
     <%=render 'shared/card_avis'%>
   </div>
 </div>
-
-  <h2> Reviews </h2>
-  <ul class="list-group">
-    <% @reviews.each do |review| %>
-
-      <li class="list-group-item">
-        Efficacité <%= review.efficacy %> | sécurité <%= review.security %> | Details <%= review.description %>
-      </li>
-    <% end %>
-  </ul>
