@@ -27,46 +27,14 @@
 
 <h3> Mes avis </h3>
 
-<% i = 0 %>
-
-<% @reviews.each do |review| %>
-
-  <div class="product">
-    <div class='product-upvote'>
-      <div class="product-arrow"></div>
-      <div class='product-count'> <%= i = i +1 %> </div>
-    </div>
-    <div class='product-body'>
-      <h3><%= review.user.username.upcase %></h3>
-      <p><%= review.description %></p>
-    </div>
-    <ul class="list-inline product-controls hidden-sm hidden-xs">
-      <li>Efficacité :
-
-        <% 5.times do |star| %>
-          <% if star < review.efficacy %>
-            <i class="fa fa-star" style="color:  #DAA520"></i>
-          <% else %>
-            <i class="fa fa-star" style="color:  grey"></i>
-          <% end %>
-        <% end %>
-
-      </li>
-      <li>Sécurité :
-
-        <% 5.times do |star| %>
-          <% if star < review.security %>
-            <i class="fa fa-star" style="color:  #DAA520"></i>
-          <% else %>
-            <i class="fa fa-star" style="color:  grey"></i>
-          <% end %>
-        <% end %>
-
-      </li>
-    </ul>
+<div class="row">
+  <div class="col-12 ">
+    <% @reviews.each do |review| %>
+      <%= render 'shared/card_review', review: review %>
+    <% end %>
   </div>
+</div>
 
-<% end %>
 
 
 
