@@ -1,21 +1,24 @@
-<h1> New Review </h1>
+<h1> <%= link_to "#{ @drug['denomination']} Review", drug_show_path(params[:code_cis]) %> </h1>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4 ">
+    <div class="col-xs-12 col-sm-6">
+    <!-- <div class="col-xs-12 col-sm-4 col-sm-offset-4 "> -->
       <div class="form-new-review">
         <h2>New Review</h2>
-        <%= simple_form_for @review, url: review_create_path(':code_cis') do |f| %>
+        <%= simple_form_for @review, url: review_create_path(params[:code_cis]) do |f| %>
           <div class="form-inputs">
-            <p><strong> Efficacité </strong></p> 
+            <p><strong> Efficacité </strong></p>
             <%= f.collection_radio_buttons :efficacy, [[1], [2], [3], [4], [5]], :first, :last %>
             <p><strong> Effets secondaires </strong></p> 
-            <%= f.collection_radio_buttons :security, [[1, 'Aucun'] ,[2, 'Mineurs'], [3, 'Modérés'], [4, 'Importants'], [4, 'Graves']], :first, :last %>
+            <%= f.collection_radio_buttons :security, [[1, 'Aucun'] ,[2, 'Mineurs'], [3, 'Modérés'], [4, 'Importants'], [5, 'Graves']], :first, :last %>
             <%= f.input :description, as: :text %>
           </div>
           <div class="form-actions">
-            <%= f.button :submit, label: "Create Review", url: drug_show_path, class:'btn btn-primary' %>
+            <%= f.button :submit, label: "Create Review", class:'btn btn-primary' %>
           </div>
         <% end %>
       </div>
+    <!-- </div>  -->
     </div>
   </div>
+

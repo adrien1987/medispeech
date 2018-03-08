@@ -7,113 +7,47 @@
     <div>
       <ul class="list-inline product-controls hidden-sm hidden-xs">
         <li><a href=""><i class="fa fa-share" style="color:  grey"></i></a></li>
+
         <% if @codes_cis.include? drug[:codeCIS] %>
-          <%= link_to '<i class="fa fa-heart" style="color: #D3473C"></i>'.html_safe,
-          put_in_favorite_path(drug[:codeCIS], params[:query]) %>
+        <%= link_to '<i class="fa fa-heart" style="color: #D3473C"></i>'.html_safe,
+        "/drugs/#{drug[:codeCIS]}/favorites/?query=#{params[:query]}" %>
         <% else %>
-          <%= link_to '<i class="fa fa-heart"></i>'.html_safe,
-          put_in_favorite_path(drug[:codeCIS], params[:query]) %>
+        <%= link_to '<i class="fa fa-heart"></i>'.html_safe,
+        "/drugs/#{drug[:codeCIS]}/favorites/?query=#{params[:query]}" %>
         <% end %>
+
       </ul>
     </div>
   </div>
-    <div class="card-body d-flex justify-content-between align-items-center">
-      <div>
-        <p>Efficacité</p>
-        <p>Effets secondaires </p>
-      </div>
-      <div>
-        <p>
-          <% safety = 3 %>
-          <% efficacy = 2 %>
-          <% 5.times do |star| %>
-          <% if star < safety %>
-          <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
-          <% else %>
-          <a href=""> <i class="fa fa-star" style="color:  grey"></a></i>
-          <% end %>
-          <% end %>
-        </p>
-        <p>
-          <% 5.times do |star| %>
-          <!-- replace with review.efficacy and delete the efficacy asignation above -->
-          <% if star < efficacy %>
-          <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
-          <% else %>
-          <a href=""><i class="fa fa-star" style="color:  grey"></a></i>
-          <% end %>
-          <% end %>
-        </p>
-      </div>
-      <%= link_to "Savoir plus", drug_show_path(drug[:codeCIS]), class: "btn btn-primary" %>
-    </div>
-  </div>
-
-
-
-
-<!-- <div class="product">
-
-  <div class="col-xs-6">
-    <div class='product-body'>
-      <h4> <%= link_to drug[:denomination], drug_show_path(drug[:codeCIS]) %> </h4>
-    </div>
-  </div>
-
-  <div class="col-xs-2"> -->
-<!--     <p>Médicament homéopathique</p>
-    <p>Sans ordonnance</p>
-    <p> Voie orale</p> -->
-  <!-- </div>
-
-  <div class="col-xs-2">
-    <br>
-    <p>Efficacité</p>
-    <p>Effets secondaires </p>
-  </div>
-  <div class="col-xs-2">
-
-    <% safety = 3 %>
-    <% efficacy = 2 %>
-
+  <div class="card-body d-flex justify-content-between align-items-center">
     <div>
-
-      <ul class="list-inline product-controls hidden-sm hidden-xs">
-        <li><a href=""><i class="fa fa-share" style="color:  grey"></i></a></li>
-        <% if @codes_cis.include? drug[:codeCIS] %>
-          <%= link_to '<i class="fa fa-heart" style="color: #D3473C"></i>'.html_safe,
-          put_in_favorite_path(drug[:codeCIS], params[:query]) %>
+      <p>Efficacité</p>
+      <p>Effets secondaires </p>
+    </div>
+    <div>
+      <p>
+        <% safety = 3 %>
+        <% efficacy = 2 %>
+        <% 5.times do |star| %>
+        <% if star < safety %>
+        <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
         <% else %>
-          <%= link_to '<i class="fa fa-heart"></i>'.html_safe,
-          put_in_favorite_path(drug[:codeCIS], params[:query]) %>
+        <a href=""> <i class="fa fa-star" style="color:  grey"></a></i>
         <% end %>
-
-      </ul>
-
-      <p>
-        <% 5.times do |star| %> -->
-
-          <!-- replace with review.safety and delete the safety asignation above -->
-          <!-- <% if star < safety %>
-            <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
-          <% else %>
-            <a href=""> <i class="fa fa-star" style="color:  grey"></a></i>
-          <% end %>
         <% end %>
       </p>
-
       <p>
-        <% 5.times do |star| %> -->
-          <!-- replace with review.efficacy and delete the efficacy asignation above -->
-          <!-- <% if star < efficacy %>
-            <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
-          <% else %>
-            <a href=""><i class="fa fa-star" style="color:  grey"></a></i>
-          <% end %>
+        <% 5.times do |star| %>
+        <!-- replace with review.efficacy and delete the efficacy asignation above -->
+        <% if star < efficacy %>
+        <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
+        <% else %>
+        <a href=""><i class="fa fa-star" style="color:  grey"></a></i>
+        <% end %>
         <% end %>
       </p>
+    </div>
+    <%= link_to "Savoir plus", drug_show_path(drug[:codeCIS]), class: "btn btn-primary" %>
   </div>
+</div>
 
-</div> -->
-
-<!-- </div> end of product div -->
