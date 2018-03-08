@@ -1,7 +1,6 @@
 <%=render 'shared/searchbar'%>
 <% if params[:query].present? %>
   <% @drugs.each do |drug|  %>
-  <%= render 'shared/product_item', drug: drug %>
+    <%= render 'shared/product_item', drug: drug %>
   <% end %>
-
 <% end %>
