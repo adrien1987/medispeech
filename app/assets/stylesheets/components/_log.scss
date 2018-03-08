@@ -4,12 +4,27 @@
   margin-top: 50px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  p {
-    font-style: "nunito",  "Helvetica", "sans-serif";
-    font-weight: lighter;
-    margin-bottom: 30px;
-    margin-top: 15px;
-    text-align: center;
+    p {
+      font-style: "nunito",  "Helvetica", "sans-serif";
+      font-weight: lighter;
+      margin-bottom: 30px;
+      margin-top: 15px;
+      text-align: center;
+    }
   }
 
+  .fa-facebook {
+      background: #3B5998;
+      color: white;
   }
+  .fa:hover {
+    opacity: 0.7;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 18px;
+
+    text-align: center;
+    text-decoration: none;
+}
