@@ -9,3 +9,10 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+development:
+  FB_ID: "1791278750923512"
+  FB_SECRET: "e5ea78ff389a16dfc7b6d91719fa85a4"
+
+production:
+  FB_ID: "365208093962032"
+  FB_SECRET: "ec681fc989938920b7280869f4d2706b"
