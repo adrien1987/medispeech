@@ -16,7 +16,6 @@ class DrugsController < ApplicationController
   def show
       @reviews = Review.where(code_cis: params[:code_cis])
       @drug = DrugService.drug(params[:code_cis])
-
   end
 
 
