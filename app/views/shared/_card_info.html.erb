@@ -17,8 +17,8 @@
     <p><%= @drug["homeopathie"] == false ? "Allopathie" : @drug["homeopathie"] %></p>
   </div>
   <% if @drug["infosGenerique"].present? %>
-  <div class="message-status">
-    <p class="status pending">Prix</p>
+  <div class="message-name">
+    <h3>Prix</h3>
     <p class="price"><%=@drug["infosGenerique"]["autresMedicamentsGroupe"].first["prix"].last %>€</p>
   </div>
   <% end %>
