@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
 	def update
 		if @review = Review.update(review_params)
-      # redirect_to profile_path(@review.user)
+      redirect_to root_path
     else
       render :edit
     end

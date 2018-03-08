@@ -6,8 +6,10 @@
         <h2>New Review</h2>
         <%= simple_form_for @review, url: review_create_path(':code_cis') do |f| %>
           <div class="form-inputs">
-            <%= f.input :efficacy, label: 'Efficacité', as: :integer %>
-            <%= f.input :security, label: 'Effets secondaires', as: :integer %>
+            <p><strong> Efficacité </strong></p> 
+            <%= f.collection_radio_buttons :efficacy, [[1], [2], [3], [4], [5]], :first, :last %>
+            <p><strong> Effets secondaires </strong></p> 
+            <%= f.collection_radio_buttons :security, [[1, 'Aucun'] ,[2, 'Mineurs'], [3, 'Modérés'], [4, 'Importants'], [4, 'Graves']], :first, :last %>
             <%= f.input :description, as: :text %>
           </div>
           <div class="form-actions">
