@@ -7,9 +7,9 @@ class DrugsController < ApplicationController
       # render json: response #affiche le JSON car pas de vue associée
       @drugs = []
       response.each { |drug| @drugs << { codeCIS: drug["codeCIS"], denomination: drug["denomination"]} }
+      @drugs.map! { |drug| drug.merge DrugService.drug(drug[:codeCIS]) }
       favorites = Favorite.where(user: current_user)
       @codes_cis = favorites.collect { |favorite| favorite.code_cis} #array avec la liste des codes
-
     end
   end
 
