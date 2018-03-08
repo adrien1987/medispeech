@@ -13,6 +13,8 @@ class FavoritesController < ApplicationController
     if params[:query].present?
       redirect_to root_path + "?query=#{params[:query]}"
     else
+      puts "params[:query] =  "
+      p params[:query]
       redirect_to profile_path
     end
   end
