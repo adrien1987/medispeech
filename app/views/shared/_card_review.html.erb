@@ -1,7 +1,11 @@
 <div class="card">
   <div class="card-header d-flex justify-content-between align-items-center">
     <div>
-      <%= current_user.username %>
+    <% if review.user.username.present?  %>
+      <%= review.user.username %>
+    <% else %>
+      <%= review.user.first_name %>
+    <% end %>
     </div>
     <div class="secu">
       <p>Securité</p>
@@ -33,7 +37,7 @@
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p><%= review.description  %></p>
-      <footer class="blockquote-footer"><%= current_user.username %> le <cite title="Source Title"><%= review.created_at.strftime('%d/%m/%Y à %H:%M')%> </cite></footer>
+      <footer class="blockquote-footer"><%= review.user.username %> le <cite title="Source Title"><%= review.created_at.strftime('%d/%m/%Y à %H:%M')%> </cite></footer>
     </blockquote>
   </div>
 </div>
