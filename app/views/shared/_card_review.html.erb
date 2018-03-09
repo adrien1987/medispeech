@@ -1,11 +1,7 @@
 <div class="card">
   <div class="card-header d-flex justify-content-between align-items-center">
     <div>
-    <% if review.user.username.present?  %>
-      <%= review.user.username %>
-    <% else %>
-      <%= review.user.first_name %>
-    <% end %>
+      <%= review.denomination %>
     </div>
     <div class="secu">
       <p>Securité</p>
