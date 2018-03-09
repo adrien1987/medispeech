@@ -9,6 +9,8 @@ class DrugsController < ApplicationController
       @drugs.map! { |drug| drug.merge DrugService.drug(drug[:codeCIS]) }
       favorites = Favorite.where(user: current_user)
       @codes_cis = favorites.collect { |favorite| favorite.code_cis} #array avec la liste des codes
+    else
+      @reviews = Review.all.last(10).reverse
     end
   end
 

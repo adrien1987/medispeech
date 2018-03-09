@@ -1,15 +1,9 @@
 
-  <div class="row">
-    <div class="search_index col-xs-12 col-sm-6 offset-sm-3">
-
-        <%= form_tag :root, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            id: 'drug_search',
-            placeholder: "Cherchez un médicament"
-          %>
-        <% end %>
-    
-    </div>
-  </div>
+<%= form_tag :root, method: :get do %>
+<%= text_field_tag :query,
+params[:query],
+class: "form-control",
+  id: 'drug_search',
+  placeholder: "Cherchez un médicament"
+  %>
+  <% end %>
