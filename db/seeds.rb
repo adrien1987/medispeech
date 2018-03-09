@@ -1,4 +1,5 @@
 
+User.destroy_all
 jane = User.create!(email: "rogue@gmail.com", password: "azerty", first_name: "Jane", last_name: "Colin", username: "alfa")
 luc = User.create!(email: "hermione@gmail.com", password: "azerty", first_name: "Luc", last_name: "Dano", username: "romeo")
 
