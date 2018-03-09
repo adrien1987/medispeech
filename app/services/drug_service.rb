@@ -27,7 +27,7 @@ class DrugService
 
   def self.getReviewSecurityNotesForDrug(code_cis, grade_value)
     reviews = getReviewsForDrug(code_cis)
-    note = reviews.size == 0 ? 0 : securityGradesPourcentage(grade_value, reviews)
+    note = reviews.size == 0 ? [0, 0] : securityGradesPourcentage(grade_value, reviews)
   end
 
   def self.securityGradesPourcentage(grade_value, reviews)
@@ -35,7 +35,7 @@ class DrugService
     reviews.each do |review|
       number_of_grade = number_of_grade + 1 if review.security == grade_value
     end
-    percentage =  100 * number_of_grade / reviews.size
+    tab = [number_of_grade, (100 * number_of_grade / reviews.size)]
   end
 
   def self.getReviewsForDrug(code_cis)

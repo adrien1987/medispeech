@@ -8,8 +8,8 @@
     <% if user_signed_in? %>
       <!-- Links when logged in -->
       <div>
-        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% avatar_url = current_user.facebook_picture_url || "logo.png" %>
+        <%= link_to image_tag(avatar_url, size:5*5), root_path, class: "avatar", id: "navbar-wagon-menu" %>
       </div>
 
       <!-- Avatar with dropdown menu -->
