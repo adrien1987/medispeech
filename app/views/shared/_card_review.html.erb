@@ -9,11 +9,11 @@
         <% security = review.security %>
         <% efficacy = review.efficacy %>
         <% 5.times do |star| %>
-        <% if star < security %>
-        <a href=""><i class="fa fa-star" style="color:  rgb(253, 203, 47)"></a></i>
-        <% else %>
-        <a href=""> <i class="fa fa-star" style="color:  grey"></a></i>
-        <% end %>
+          <% if star < security %>
+            <i class="fa fa-star" style="color:  rgb(253, 203, 47)"></i>
+          <% else %>
+            <i class="fa fa-star" style="color:  grey"></i>
+          <% end %>
         <% end %>
       </p>
     </div>
@@ -21,11 +21,11 @@
       <p>Efficacité</p>
       <p>
         <% 5.times do |star| %>
-        <% if star < efficacy %>
-        <a href=""><i class="fa fa-star" style="color:  rgb(253, 203, 47)"></a></i>
-        <% else %>
-        <a href=""><i class="fa fa-star" style="color:  grey"></a></i>
-        <% end %>
+          <% if star < efficacy %>
+            <i class="fa fa-star" style="color:  rgb(253, 203, 47)"></i>
+          <% else %>
+            <i class="fa fa-star" style="color:  grey"></i>
+          <% end %>
         <% end %>
       </p>
     </div>
