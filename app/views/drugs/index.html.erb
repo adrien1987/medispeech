@@ -1,4 +1,4 @@
-<%=render 'shared/searchbar'%>
+<%=render 'shared/banner'%>
 <% if params[:query].present? %>
   <% @drugs.each do |drug|  %>
     <%= render 'shared/product_item', drug: drug %>
