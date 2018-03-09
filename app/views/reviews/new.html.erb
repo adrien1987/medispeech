@@ -8,6 +8,7 @@
         <h2>New Review</h2>
         <%= simple_form_for @review, url: review_create_path(params[:code_cis]) do |f| %>
           <div class="form-inputs">
+            <%= f.input :denomination, as: :hidden, :input_html => { value: "#{@drug['denomination']}" } %>
             <p><strong> Efficacité </strong></p>
             <%= f.collection_radio_buttons :efficacy, [[1], [2], [3], [4], [5]], :first, :last %>
             <p><strong> Effets secondaires </strong></p>

@@ -1,11 +1,7 @@
 <div class="card">
   <div class="card-header d-flex justify-content-between align-items-center">
     <div>
-    <% if review.user.username.present?  %>
-      <%= review.user.username %>
-    <% else %>
-      <%= review.user.first_name %>
-    <% end %>
+      <%= link_to review.denomination, drug_show_path(review.code_cis)  %>
     </div>
     <div class="secu">
       <p>Securité</p>
@@ -39,5 +35,8 @@
       <p><%= review.description  %></p>
       <footer class="blockquote-footer"><%= review.user.username %> le <cite title="Source Title"><%= review.created_at.strftime('%d/%m/%Y à %H:%M')%> </cite></footer>
     </blockquote>
+    <% if current_user == review.user %>
+      <%= link_to "Modifier l'avis", edit_review_path(review) %>
+    <% end %>
   </div>
 </div>
