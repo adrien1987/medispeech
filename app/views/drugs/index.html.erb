@@ -1,6 +1,8 @@
 <%=render 'shared/banner'%>
 <% if params[:query].present? %>
   <% @drugs.each do |drug|  %>
-    <%= render 'shared/product_item', drug: drug %>
+    <div class="col-sm-8 offset-2">
+      <%= render 'shared/drug_card_item', drug: drug %>
+    </div>
   <% end %>
 <% end %>

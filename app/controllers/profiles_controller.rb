@@ -7,7 +7,6 @@ class ProfilesController < ApplicationController
     @user.favorites.each { |favorite| unformated_drugs << DrugService.drug(favorite.code_cis) }
     @drugs = []
     unformated_drugs.each { |drug| @drugs << { codeCIS: drug["codeCIS"], denomination: drug["denomination"]} }
-
     @reviews = Review.where(user: @user)
 
   end
