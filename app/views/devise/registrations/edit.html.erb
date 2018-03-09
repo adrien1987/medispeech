@@ -9,8 +9,8 @@
 
         <div class="form-inputs">
           <%= f.input :username, required: true, autofocus: true  %>
-          <%= f.input :firstname, required: true %>
-          <%= f.input :lastname, required: true%>
+          <%= f.input :first_name, required: true %>
+          <%= f.input :last_name, required: true%>
           <%= f.input :email, required: true %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
