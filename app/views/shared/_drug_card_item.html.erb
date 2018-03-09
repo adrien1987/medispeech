@@ -30,19 +30,19 @@
         <% efficacy = DrugService.getAverageReviewsNoteForDrug(drug[:codeCIS], "efficacy") %>
         <% security = DrugService.getAverageReviewsNoteForDrug(drug[:codeCIS], "security") %>
         <% 5.times do |star| %>
-        <% if star < efficacy %>
-        <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
-        <% else %>
-        <a href=""> <i class="fa fa-star" style="color:  grey"></a></i>
-        <% end %>
+          <% if star < efficacy %>
+            <i class="fa fa-star" style="color:  #DAA520"></i>
+          <% else %>
+            <i class="fa fa-star" style="color:  grey"></i>
+          <% end %>
         <% end %>
       </p>
       <p>
         <% 5.times do |star| %>
           <% if star < security %>
-            <a href=""><i class="fa fa-star" style="color:  #DAA520"></a></i>
+            <i class="fa fa-star" style="color:  #DAA520"></i>
           <% else %>
-            <a href=""><i class="fa fa-star" style="color:  grey"></a></i>
+            <i class="fa fa-star" style="color:  grey"></i>
           <% end %>
         <% end %>
       </p>

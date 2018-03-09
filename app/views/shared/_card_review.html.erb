@@ -6,14 +6,14 @@
     <div class="secu">
       <p>Securité</p>
       <p>
-        <% safety = 3 %>
-        <% efficacy = 2 %>
+        <% security = review.security %>
+        <% efficacy = review.efficacy %>
         <% 5.times do |star| %>
-        <% if star < safety %>
-        <a href=""><i class="fa fa-star" style="color:  rgb(253, 203, 47)"></a></i>
-        <% else %>
-        <a href=""> <i class="fa fa-star" style="color:  grey"></a></i>
-        <% end %>
+          <% if star < security %>
+            <i class="fa fa-star" style="color:  rgb(253, 203, 47)"></i>
+          <% else %>
+            <i class="fa fa-star" style="color:  grey"></i>
+          <% end %>
         <% end %>
       </p>
     </div>
@@ -21,12 +21,11 @@
       <p>Efficacité</p>
       <p>
         <% 5.times do |star| %>
-        <!-- replace with review.efficacy and delete the efficacy asignation above -->
-        <% if star < efficacy %>
-        <a href=""><i class="fa fa-star" style="color:  rgb(253, 203, 47)"></a></i>
-        <% else %>
-        <a href=""><i class="fa fa-star" style="color:  grey"></a></i>
-        <% end %>
+          <% if star < efficacy %>
+            <i class="fa fa-star" style="color:  rgb(253, 203, 47)"></i>
+          <% else %>
+            <i class="fa fa-star" style="color:  grey"></i>
+          <% end %>
         <% end %>
       </p>
     </div>
@@ -34,7 +33,7 @@
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p><%= review.description  %></p>
-      <footer class="blockquote-footer"><%= current_user.username %> le <cite title="Source Title"><%=review.created_at.strftime('%d/%m/%Y à %H:%M')%> </cite></footer>
+      <footer class="blockquote-footer"><%= current_user.username %> le <cite title="Source Title"><%= review.created_at.strftime('%d/%m/%Y à %H:%M')%> </cite></footer>
     </blockquote>
   </div>
 </div>
