@@ -35,5 +35,8 @@
       <p><%= review.description  %></p>
       <footer class="blockquote-footer"><%= review.user.username %> le <cite title="Source Title"><%= review.created_at.strftime('%d/%m/%Y à %H:%M')%> </cite></footer>
     </blockquote>
+    <% if current_user == review.user %>
+      <%= link_to "Modifier l'avis", edit_review_path(review) %>
+    <% end %>
   </div>
 </div>
