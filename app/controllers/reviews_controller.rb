@@ -17,11 +17,11 @@ class ReviewsController < ApplicationController
 	end
 
 	def edit
-		@review = Review.find(params[:id])
 	end
 
 	def update
-		if @review = Review.update(review_params)
+
+		if @review = current_user.reviews.update(review_params)
       redirect_to profile_path
     else
       render :edit

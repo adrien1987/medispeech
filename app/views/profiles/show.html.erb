@@ -18,10 +18,10 @@
 <div class="row">
   <h3> Mes avis </h3>
   <ul class="list-group">
-    <% @reviews.each do |review| %>
+    <% @user.reviews.each do |review| %>
 
       <li class="list-group-item">
-        Efficacité <%= review.efficacy %> | sécurité <%= review.security %> | Details <%= review.description %>
+        <%= review.id %> <%= review.code_cis %> Efficacité <%= review.efficacy %> | sécurité <%= review.security %> | Details <%= review.description %>
       </li>
     <% end %>
   </ul>
