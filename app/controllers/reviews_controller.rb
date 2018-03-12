@@ -20,8 +20,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def update
-
-		if @review = current_user.reviews.update(review_params)
+		if @review = Review.update(review_params)
       redirect_to profile_path
     else
       render :edit
@@ -31,7 +30,7 @@ class ReviewsController < ApplicationController
 	private
 
 	def review_params
-		params.require(:review).permit(:user_id, :efficacy, :security, :description)
+		params.require(:review).permit(:user_id, :efficacy, :security, :description, :denomination)
 	end
 
 end

@@ -1,6 +1,16 @@
-<%=render 'shared/searchbar'%>
+<%=render 'shared/banner'%>
 <% if params[:query].present? %>
   <% @drugs.each do |drug|  %>
-    <%= render 'shared/product_item', drug: drug %>
+    <div class="col-sm-8 offset-2">
+      <%= render 'shared/drug_card_item', drug: drug %>
+    </div>
   <% end %>
+<% else %>
+  <div class="row">
+    <div class="col-sm-8 offset-2 ">
+      <% @reviews.each do |review| %>
+      <%= render 'shared/card_review', review: review %>
+      <% end %>
+    </div>
+  </div>
 <% end %>

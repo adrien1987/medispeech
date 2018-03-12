@@ -1,30 +1,36 @@
 <h1>Mon profile</h1>
 
-<p> Name : <%= @user.firstname.capitalize %> <%= @user.lastname.upcase %></p>
-<p> Username : <%= @user.username %> </p>
-<p> Email : <%= @user.email %> </p>
-
-<%= link_to "Modifier mes informations", edit_user_registration_path %>
-
-
-
-<h3>Mes médicaments</h3>
-<% @drugs.each do |drug| %>
-
-  <%= render 'shared/product_item', drug: drug %>
-
-<% end %>
-
-<div class="row">
-  <h3> Mes avis </h3>
-  <ul class="list-group">
-    <% @user.reviews.each do |review| %>
-
-      <li class="list-group-item">
-        <%= review.id %> <%= review.code_cis %> Efficacité <%= review.efficacy %> | sécurité <%= review.security %> | Details <%= review.description %>
-      </li>
-    <% end %>
-  </ul>
+<div class="message">
+<img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+<div class="message-name">
+  <h3><strong><%= @user.username %></strong></h3>
+  <p><%= @user.email %></p>
+</div>
+<div class="message-body">
+  <p><strong>Name</strong></p>
+  <p>
+    <%= @user.first_name.capitalize %> <%= @user.last_name.upcase %>
+  </p>
+</div>
+<div class="message-status">
+  <p class="price"><%= link_to "Modifier mes informations", edit_user_registration_path %></p>
+</div>
 </div>
 
+<h3>Mes médicaments</h3>
 
+<% @drugs.each do |drug| %>
+
+  <%= render 'shared/drug_card_item', drug: drug %>
+  <br>
+<% end %>
+
+<h3> Mes avis </h3>
+
+<div class="row">
+  <div class="col-12 ">
+    <% @reviews.each do |review| %>
+      <%= render 'shared/card_review', review: review %>
+    <% end %>
+  </div>
+</div>

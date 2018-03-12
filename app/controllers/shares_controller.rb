@@ -1,4 +1,4 @@
-class FavoritesController < ApplicationController
+class SharesController < ApplicationController
   def put_in_favorite
     codeCIS = params[:code_cis]
     favorite = Favorite.where(code_cis: codeCIS, user: current_user).first
