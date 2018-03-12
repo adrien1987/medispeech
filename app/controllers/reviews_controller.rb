@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+	before_action :set_review, only: [:edit, :update]
+
 
 	def new
 		@review = Review.new
@@ -17,11 +19,10 @@ class ReviewsController < ApplicationController
 	end
 
 	def edit
-		@review = Review.find(params[:id])
 	end
 
 	def update
-		if @review = Review.update(review_params)
+		if @review.update(review_params)
       redirect_to profile_path
     else
       render :edit
@@ -29,6 +30,10 @@ class ReviewsController < ApplicationController
 	end
 
 	private
+
+	def set_review
+		@review = Review.find(params[:id])
+	end
 
 	def review_params
 		params.require(:review).permit(:user_id, :efficacy, :security, :description, :denomination)
