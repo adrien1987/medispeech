@@ -2,10 +2,11 @@
   <h1> <%= link_to "#{ @drug['denomination']}", drug_show_path(params[:code_cis]), class: "title2" %> </h1>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-8">
-    <!-- <div class="col-xs-12 col-sm-4 col-sm-offset-4 "> -->
-      <div class="form-new-review">
-        <h2>New Review</h2>
+    <div class="col-xs-12 col-sm-12 col-lg-12">
+      <div class="form-review">
+        <div class="title-form">
+          <h2>Donnez votre avis sur ce médicament</h2>
+        </div>
         <%= simple_form_for @review, url: review_create_path(params[:code_cis]) do |f| %>
           <div class="form-inputs">
             <%= f.input :denomination, as: :hidden, :input_html => { value: "#{@drug['denomination']}" } %>
@@ -20,6 +21,5 @@
           </div>
         <% end %>
       </div>
-    <!-- </div>  -->
     </div>
   </div>
