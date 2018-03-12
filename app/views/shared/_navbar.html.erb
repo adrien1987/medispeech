@@ -1,7 +1,6 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-
-
+  <%= link_to "Medispeech", root_path, class: "home-btn" %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -9,14 +8,14 @@
       <!-- Links when logged in -->
       <div>
         <% avatar_url = current_user.facebook_picture_url || "logo.png" %>
-        <%= link_to image_tag(avatar_url, size:5*5), root_path, class: "avatar", id: "navbar-wagon-menu" %>
+        <%= link_to image_tag(avatar_url, size:5*5), profile_path, class: "avatar", id: "navbar-wagon-menu" %>
       </div>
 
       <!-- Avatar with dropdown menu -->
 
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
@@ -31,8 +30,11 @@
         <li><%= link_to destroy_user_session_path, method: :delete do %>
         <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
         <% end %></li>
-
       </ul>
     </div>
   </div>
 </div>
+
+
+
+
