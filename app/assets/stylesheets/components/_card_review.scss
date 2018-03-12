@@ -16,3 +16,18 @@
 .card {
   margin-top: 25px;
 }
+
+.card-body {
+
+  flex-wrap: wrap;
+
+  p {
+    font-size: 16px
+  }
+
+  #btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+}
