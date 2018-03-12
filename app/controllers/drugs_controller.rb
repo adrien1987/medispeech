@@ -3,10 +3,9 @@ class DrugsController < ApplicationController
 
   def index
     if params[:query].present?
-      response = DrugService.all_drugs(params[:query])
+      @response = DrugService.all_drugs(params[:query])
       @drugs = []
-      response.each { |drug| @drugs << { codeCIS: drug["codeCIS"], denomination: drug["denomination"]} }
-      @drugs.map! { |drug| drug.merge DrugService.drug(drug[:codeCIS]) }
+      @response.each { |drug| @drugs << { codeCIS: drug["codeCIS"], denomination: drug["denomination"]} }
       favorites = Favorite.where(user: current_user)
       @codes_cis = favorites.collect { |favorite| favorite.code_cis} #array avec la liste des codes
     else
