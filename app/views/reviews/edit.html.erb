@@ -6,7 +6,7 @@
         <div class="title-form">
           <h2>Edit Review</h2>
         </div>
-        <%= simple_form_for @review, url: review_path(params[:id]) do |f| %>
+        <%= simple_form_for @review do |f| %>
           <div class="form-inputs">
             <p><strong> Efficacité </strong></p>
             <%= f.collection_radio_buttons :efficacy, [[1], [2], [3], [4], [5]], :first, :last %>
