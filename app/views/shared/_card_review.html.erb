@@ -3,8 +3,9 @@
     <div>
       <%= link_to review.denomination, drug_show_path(review.code_cis)  %>
     </div>
+
     <div class="secu">
-      <p>Securité</p>
+      <p>Risques</p>
       <p>
         <% security = review.security %>
         <% efficacy = review.efficacy %>
@@ -17,6 +18,7 @@
         <% end %>
       </p>
     </div>
+
     <div class="effi">
       <p>Efficacité</p>
       <p>
@@ -30,13 +32,14 @@
       </p>
     </div>
   </div>
+
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p><%= review.description  %></p>
-      <footer class="blockquote-footer"><%= review.user.username %> le <cite title="Source Title"><%= review.created_at.strftime('%d/%m/%Y à %H:%M')%> </cite></footer>
+      <footer class="blockquote-footer">Par <%= review.user.username %> le <cite title="Source Title"><%= review.created_at.strftime('%d/%m/%Y à %H:%M')%> </cite></footer>
     </blockquote>
     <% if current_user == review.user %>
-      <%= link_to "Modifier l'avis", edit_review_path(review) %>
+      <%= link_to "Modifier mon avis", edit_review_path(review), class: "btn btn-primary", id: "btn" %>
     <% end %>
   </div>
 </div>
