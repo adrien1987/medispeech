@@ -1,4 +1,12 @@
-<%=render 'shared/banner'%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col noPadding">
+      <%= render 'shared/banner'%>
+    </div>
+  </div>
+</div>
+
+
 <% if params[:query].present? %>
   <% @drugs.each do |drug|  %>
     <div class="col-sm-8 offset-2">
@@ -8,9 +16,13 @@
 <% else %>
   <div class="row">
     <div class="col-sm-8 offset-2 ">
+      <h2 class="text-center">Derniers avis </h2>
+      <hr>
       <% @reviews.each do |review| %>
       <%= render 'shared/card_review', review: review %>
       <% end %>
     </div>
   </div>
 <% end %>
+
+

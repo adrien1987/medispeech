@@ -1,23 +1,22 @@
-<h1><%= link_to "Back to profile", profile_path %></h1>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-12">
-      <div class="form-review">
-        <div class="title-form">
+<div class="container">
+  <h1><%= link_to "Back to profile", profile_path %></h1>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-3 ">
+        <div class="form-new-review">
           <h2>Edit Review</h2>
+          <%= simple_form_for @review, url: review_path(params[:id]) do |f| %>
+            <div class="form-inputs">
+              <p><strong> Efficacité </strong></p>
+              <%= f.collection_radio_buttons :efficacy, [[1], [2], [3], [4], [5]], :first, :last %>
+              <p><strong> Effets secondaires </strong></p>
+              <%= f.collection_radio_buttons :security, [[1, 'Aucun'] ,[2, 'Mineurs'], [3, 'Modérés'], [4, 'Importants'], [4, 'Graves']], :first, :last %>
+              <%= f.input :description, as: :text %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, label: "Edit Review", class:'btn btn-primary' %>
+            </div>
+          <% end %>
         </div>
-        <%= simple_form_for @review do |f| %>
-          <div class="form-inputs">
-            <p><strong> Efficacité </strong></p>
-            <%= f.collection_radio_buttons :efficacy, [[1], [2], [3], [4], [5]], :first, :last %>
-            <p><strong> Effets secondaires </strong></p>
-            <%= f.collection_radio_buttons :security, [[1, 'Aucun'] ,[2, 'Mineurs'], [3, 'Modérés'], [4, 'Importants'], [4, 'Graves']], :first, :last %>
-            <%= f.input :description, as: :text, text: "#{@review.description}" %>
-          </div>
-          <div class="form-actions">
-            <%= f.button :submit, label: "Edit Review", class:'btn btn-primary' %>
-          </div>
-        <% end %>
       </div>
     </div>
-  </div>
+</div>
