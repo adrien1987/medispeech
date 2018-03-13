@@ -1,18 +1,23 @@
 .rates {
   display: flex;
   justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
 }
   .secu {
     margin-right: 20px;
     p {
+      color: white;
       padding-bottom: 1px;
       margin-bottom: 1px;
     }
   }
 
   .effi {
+    margin-right: 10px;
     p {
+      color: white;
       padding-bottom: 1px;
       margin-bottom: 1px;
     }
@@ -20,6 +25,15 @@
 
 .card {
   margin-top: 25px;
+  a {
+    margin-left: 10px;
+    color: white;
+  }
+}
+
+.card-header-review {
+  background-color: #3F88C5;
+
 }
 
 .card-body {

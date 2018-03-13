@@ -7,17 +7,19 @@
   .btn {
     height: 50px;
     width: 50px;
-    background-color: white;
+    background-color: #F08888;
     border-radius: 50px;
     text-align: center;
-    color: black;
+    color: white;
+    font-size: 18px;
+    border: 3px solid white;
   }
 }
 
 .home_wrapper {
-height: calc(100vh - 70px);
-width: auto;
-background-color: rgba(0,36,61,0.6);
+  min-height: calc(100vh - 70px);
+  width: auto;
+  background-color: rgba(0,36,61,0.6);
 }
 
 .wrapperheader {
