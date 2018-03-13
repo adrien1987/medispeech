@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   post "/drugs/:code_cis/reviews", to: 'reviews#create', as: :review_create
   get "/profiles", to: 'profiles#show', as: :profile
   get "/drugs/:code_cis/favorites/", to: 'favorites#put_in_favorite', as: :put_in_favorite
-  get "/drugs/:code_cis/favorites/", to: 'favorites#put_in_favorite', as: :in_favorite
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get "/drugs/:code_cis/favorites/now", to: 'favorites#now', as: :now
+
   resources :reviews, only: [:edit, :update]
 
   get 'search', to: 'drugs#search'
