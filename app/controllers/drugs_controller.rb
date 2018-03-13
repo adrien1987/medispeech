@@ -1,5 +1,5 @@
 class DrugsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index,:show]
+  skip_before_action :authenticate_user!, only: [:index,:show, :search]
 
   def index
     if params[:query].present?
@@ -16,6 +16,11 @@ class DrugsController < ApplicationController
   def show
       @reviews = Review.where(code_cis: params[:code_cis])
       @drug = DrugService.drug(params[:code_cis])
+  end
+
+  def search
+    results = DrugService.all_drugs(params[:query])
+    render json: results
   end
 
 

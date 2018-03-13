@@ -1,0 +1,186 @@
+<div class="form-group">
+  <input class="form-control bs-autocomplete" id="ac-demo" value="" placeholder="Rechercher mon médicament.." type="text" data-source="demo_source.php" data-hidden_field_id="city-code" data-item_id="id" data-item_label="cityName" autocomplete="off">
+</div>
+
+<style>
+  .bs-autocomplete {
+    width: 400px;
+  }
+  ul.bs-autocomplete-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow: auto;
+    z-index: 9999;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.4);
+  }
+
+  ul.bs-autocomplete-menu a {
+    font-weight: normal;
+    color: #333333;
+  }
+
+  .ui-helper-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .ui-state-active,
+  .ui-state-focus {
+    color: #23527c;
+    background-color: #eeeeee;
+  }
+
+  .bs-autocomplete-feedback {
+    width: 1.5em;
+    height: 1.5em;
+    overflow: hidden;
+    margin-top: .5em;
+    margin-right: .5em;
+  }
+
+  .loader {
+    font-size: 10px;
+    text-indent: -9999em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: #333;
+    background: -moz-linear-gradient(left, #333333 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #333333 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #333333 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #333333 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #333333 10%, rgba(255, 255, 255, 0) 42%);
+    position: relative;
+    -webkit-animation: load3 1.4s infinite linear;
+    animation: load3 1.4s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .loader:before {
+    width: 50%;
+    height: 50%;
+    background: #333;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+
+  .loader:after {
+    background: #fff;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  @-webkit-keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<%= content_for(:after_js) do %>
+  <script>
+    $.widget("ui.autocomplete", $.ui.autocomplete, {
+
+      _renderMenu: function(ul, items) {
+        var that = this;
+        ul.attr("class", "nav nav-pills nav-stacked  bs-autocomplete-menu");
+        $.each(items, function(index, item) {
+          that._renderItemData(ul, item);
+        });
+      },
+
+      _resizeMenu: function() {
+        var ul = this.menu.element;
+        ul.outerWidth(Math.min(
+          // Firefox wraps long text (possibly a rounding bug)
+          // so we add 1px to avoid the wrapping (#7513)
+          ul.width("").outerWidth() + 1,
+          this.element.outerWidth()
+        ));
+      }
+
+    });
+
+
+    $('.bs-autocomplete').each(function() {
+      var _this = $(this);
+
+
+      _this.after('<div class="bs-autocomplete-feedback form-control-feedback"><div class="loader">Loading...</div></div>')
+        .parent('.form-group').addClass('has-feedback');
+
+      var feedback_icon = _this.next('.bs-autocomplete-feedback');
+      feedback_icon.hide();
+
+      _this.autocomplete({
+          minLength: 2,
+          autoFocus: true,
+
+          source: function( request, response ) {
+             $.ajax({
+                url: "<%= search_path %>?query=" + request.term,
+                dataType: "json",
+                data: request,
+                success: function(data){
+                  console.log(data);
+                  response(data);
+                }
+            });
+          },
+          select: function(event, ui) {
+            _this.val(ui.item['denomination']);
+            _hidden_field.val(ui.item['codeCIS']);
+            event.preventDefault();
+          }
+        })
+        .data('ui-autocomplete')._renderItem = function(ul, item) {
+          return $('<li></li>')
+            .data("item.autocomplete", item)
+            .append('<a href="' + '/drugs/' + item['codeCIS'] + '">' + item['denomination'] + '</a>')
+            .appendTo(ul);
+        };
+      });
+
+  </script>
+<% end %>
