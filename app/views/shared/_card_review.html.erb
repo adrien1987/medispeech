@@ -3,33 +3,34 @@
     <div>
       <%= link_to review.denomination, drug_show_path(review.code_cis)  %>
     </div>
-
-    <div class="secu">
-      <p>Risques</p>
-      <p>
-        <% security = review.security %>
-        <% efficacy = review.efficacy %>
-        <% 5.times do |star| %>
-          <% if star < security %>
-            <i class="fa fa-star" style="color:  rgb(253, 203, 47)"></i>
-          <% else %>
-            <i class="fa fa-star" style="color:  grey"></i>
+    <div class= "rates">
+      <div class="secu">
+        <p>Risques</p>
+        <p>
+          <% security = review.security %>
+          <% efficacy = review.efficacy %>
+          <% 5.times do |star| %>
+            <% if star < security %>
+              <i class="fa fa-star" style="color:  rgb(253, 203, 47)"></i>
+            <% else %>
+              <i class="fa fa-star" style="color:  grey"></i>
+            <% end %>
           <% end %>
-        <% end %>
-      </p>
-    </div>
+        </p>
+      </div>
 
-    <div class="effi">
-      <p>Efficacité</p>
-      <p>
-        <% 5.times do |star| %>
-          <% if star < efficacy %>
-            <i class="fa fa-star" style="color:  rgb(253, 203, 47)"></i>
-          <% else %>
-            <i class="fa fa-star" style="color:  grey"></i>
+      <div class="effi">
+        <p>Efficacité</p>
+        <p>
+          <% 5.times do |star| %>
+            <% if star < efficacy %>
+              <i class="fa fa-star" style="color:  rgb(253, 203, 47)"></i>
+            <% else %>
+              <i class="fa fa-star" style="color:  grey"></i>
+            <% end %>
           <% end %>
-        <% end %>
-      </p>
+        </p>
+      </div>
     </div>
   </div>
 
