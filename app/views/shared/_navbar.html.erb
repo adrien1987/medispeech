@@ -1,8 +1,11 @@
-<div class="navbar-wagon">
+
+<div class="navbar-wagon fixed-top">
   <!-- Logo -->
-  <%= link_to "VidalMedicament", root_path, class: "home-btn" %>
-  <!-- Right Navigation -->
-  <%= render 'shared/search_input' %>
+  <div class="navbar-left">
+    <%= link_to "VidalMedicament", root_path, class: "home-btn" %>
+    <!-- Right Navigation -->
+    <%= render 'shared/search_input' %>
+  </div>
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
@@ -19,7 +22,5 @@
     <% end %>
   </div>
 </div>
-
-
 
 

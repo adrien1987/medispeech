@@ -1,7 +1,7 @@
 <div class="container">
   <div class= "col-xs-12 col-sm-10 col-sm-offset-1">
     <section class="readme-section">
-      <h1 class="readme-header">Mon profile</h1>
+      <h1 class="readme-header">Mon profil</h1>
       <ul>
         <li>
           <p>Nom : <%= user.last_name.capitalize %></p>
@@ -15,7 +15,7 @@
           </li>
         <% end %>
         <li>
-          <p>@Email : <%= user.email %></p>
+          <p>Email : <%= user.email %></p>
         </li>
       </ul>
       <div class="modification_status">
@@ -65,7 +65,7 @@
 <div class="container">
   <div class= "col-xs-12 col-sm-10 col-sm-offset-1">
     <section class="readme-section">
-      <h1 class="readme-header">Mes avis laissés</h1>
+      <h1 class="readme-header">Mes avis</h1>
         <% @reviews.each do |review| %>
           <%= render 'shared/card_review', review: review %>
         <% end %>
