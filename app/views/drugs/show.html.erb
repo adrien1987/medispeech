@@ -15,6 +15,7 @@
     <div class="col-12 col-sm-8">
       <%= render 'shared/card_info' %>
       <%= render 'shared/card_infoglobales' %>
+
       <% @reviews.each do |review| %>
         <%= render 'shared/card_review', review: review %>
       <% end %>

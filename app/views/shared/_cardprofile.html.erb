@@ -30,8 +30,9 @@
     <section class="readme-section">
       <h1 class="readme-header">Mes médicaments favoris</h1>
         <div class="row justifees">
+          <% i = 0  %>
           <% @drugs.each do |drug| %>
-          <%= render 'shared/drug_card_item', drug: drug %>
+          <%= render 'shared/drug_card_item', drug: drug, i: i %>
           <% end %>
         </div>
       </section>
