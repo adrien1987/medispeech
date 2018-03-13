@@ -22,4 +22,16 @@
     <p class="price"><%=@drug["infosGenerique"]["autresMedicamentsGroupe"].first["prix"].last %>€</p>
   </div>
   <% end %>
+  <div class="message-name">
+    <h3>Ajouter en favoris</h3>
+    <p>
+    <% if @codes_cis.include? @drug["codeCIS"] %>
+      <%= link_to '<i class="fa fa-heart" style="color: #D3473C"></i>'.html_safe,
+      "/drugs/#{@drug["codeCIS"]}/favorites/" %>
+    <% else %>
+      <%= link_to '<i class="fa fa-heart"></i>'.html_safe,
+      "/drugs/#{@drug["codeCIS"]}/favorites/" %>
+    <% end %>
+  </p>
+  </div>
 </div>

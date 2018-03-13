@@ -59,6 +59,7 @@
   align-items: center;
   text-align: center;
   margin: 0px;
+  justify-content: space-between;
 }
 .product-controls a {
   padding: 0 20px;
@@ -95,4 +96,18 @@
 }
 .product-upvote:hover .product-arrow {
   border-bottom: 9px solid #5898f1;
+}
+
+.text-truncate {
+  padding: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.justifees {
+  justify-content: space-around;
+}
+
+.centeritemfavorits {
+  text-align: center;
+  margin-top: 15px;
 }

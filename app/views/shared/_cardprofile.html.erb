@@ -1,0 +1,51 @@
+<div class="container">
+  <div class= "col-xs-12 col-sm-10 col-sm-offset-1">
+    <section class="readme-section">
+      <h1 class="readme-header">Mon profile</h1>
+      <ul>
+        <li>
+          <p>Nom : <%= user.last_name.capitalize %></p>
+        </li>
+        <li>
+          <p>Prénom : <%= user.first_name.capitalize %></p>
+        </li>
+        <% if user.username.present? %>
+          <li>
+            <p>Username : <%= user.username %></p>
+          </li>
+        <% end %>
+        <li>
+          <p>@Email : <%= user.email %></p>
+        </li>
+      </ul>
+      <div class="modification_status">
+        <p class="price"><%= link_to "Modifier mes informations", edit_user_registration_path %></p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="container">
+  <div class= "col-xs-12 col-sm-10 col-sm-offset-1">
+    <section class="readme-section">
+      <h1 class="readme-header">Mes médicaments favoris</h1>
+        <div class="row justifees">
+          <% @drugs.each do |drug| %>
+          <%= render 'shared/drug_card_item', drug: drug %>
+          <% end %>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class= "col-xs-12 col-sm-10 col-sm-offset-1">
+    <section class="readme-section">
+      <h1 class="readme-header">Mes avis laissés</h1>
+        <% @reviews.each do |review| %>
+          <%= render 'shared/card_review', review: review %>
+        <% end %>
+    </section>
+  </div>
+</div>

@@ -10,11 +10,8 @@ class FavoritesController < ApplicationController
       favorite.user = current_user
       favorite.save
     end
-    if params[:query].present?
-      redirect_to root_path + "?query=#{params[:query]}"
-    else
-      redirect_to profile_path
-    end
+
+    redirect_back(fallback_location: root_path)
   end
 
   private

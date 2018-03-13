@@ -18,14 +18,14 @@
       <%= render 'shared/drug_card_item', drug: drug %>
     </div>
   <% end %>
-<% else %>
+<!--  else
   <div class="row">
     <div class="col-sm-8 offset-2 ">
       <h2 class="text-center">Derniers avis </h2>
       <hr>
-      <% @reviews.each do |review| %>
-      <%= render 'shared/card_review', review: review %>
-      <% end %>
+       @reviews.each do |review|
+       render 'shared/card_review', review: review
+      end 
     </div>
-  </div>
+  </div> -->
 <% end %>

@@ -14,8 +14,10 @@ class DrugsController < ApplicationController
   end
 
   def show
-      @reviews = Review.where(code_cis: params[:code_cis])
-      @drug = DrugService.drug(params[:code_cis])
+    favorites = Favorite.where(user: current_user)
+    @codes_cis = favorites.collect { |favorite| favorite.code_cis} #array avec la liste des codes
+    @reviews = Review.where(code_cis: params[:code_cis])
+    @drug = DrugService.drug(params[:code_cis])
   end
 
   def search
