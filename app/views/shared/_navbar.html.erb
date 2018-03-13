@@ -2,6 +2,7 @@
   <!-- Logo -->
   <%= link_to "Medispeech", root_path, class: "home-btn" %>
   <!-- Right Navigation -->
+  <%= render 'shared/search_input' %>
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
