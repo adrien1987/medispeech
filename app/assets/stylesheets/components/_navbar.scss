@@ -25,7 +25,7 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
+.navbar-wagon-brand  {
   height: 50px;
 }
 
@@ -88,4 +88,8 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.form-group {
+  margin: 1px;
 }

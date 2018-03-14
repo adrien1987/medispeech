@@ -1,26 +1,24 @@
 
-<div class="navbar-wagon fixed-top">
-  <!-- Logo -->
-  <div class="navbar-left">
-    <%= link_to "VidalMedicament", root_path, class: "home-btn" %>
-    <!-- Right Navigation -->
-    <%= render 'shared/search_input' %>
-  </div>
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <% if user_signed_in? %>
-      <!-- Links when logged in -->
-      <div>
-        <% avatar_url = current_user.facebook_picture_url || "logo.png" %>
-        <%= link_to image_tag(avatar_url, size:5*5), profile_path, class: "avatar", id: "navbar-wagon-menu" %>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link") %>
-      </div>
-    <% else %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <%= link_to "VidalMedicament", root_path, class: "navbar-brand" %>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <% if user_signed_in? %>
+        <li class="nav-item"><%= link_to "Profil", profile_path, class: "nav-link", id: "navbar-wagon-menu" %></li>
+        <li class="nav-item"><%= link_to('Déconnexion', destroy_user_session_path, method: :delete, class: "nav-link") %></li>
+      <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "sign up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to t(".sign_in", default: "login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
+        <li class="nav-item"><%= link_to "Inscription", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li class="nav-item"><%= link_to t(".sign_in", default: "Connexion"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+      <% end %>
+    </ul>
+    <form class="form-inline mx-2 my-auto d-inline w-50">
+      <%= render 'shared/search_input'  %>
+    </form>
   </div>
-</div>
-
-
+</nav>
