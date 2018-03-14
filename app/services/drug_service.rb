@@ -2,6 +2,8 @@ require 'rest-client'
 
 class DrugService
   URL = 'https://open-medicaments.fr/api/v1/medicaments'
+  INTERACTION_URL = 'https://www.open-medicaments.fr/api/v1/interactions'
+  # INTERACTION_URL = 'https://www.open-medicaments.fr/api/v1/interactions?ids=66565609%7C60958897'
 
   def self.all_drugs(term)
     response = RestClient.get(URL + '?query=' + I18n.transliterate(term))
@@ -10,6 +12,11 @@ class DrugService
 
   def self.drug(code_cis)
     response = RestClient.get(URL + "/" + code_cis)
+    JSON.parse(response)
+  end
+
+  def self.interactions(code_cis_1, code_cis_2)
+    response = RestClient.get(INTERACTION_URL + '?ids=' + code_cis_1 + '%7C' + code_cis_2)
     JSON.parse(response)
   end
 
@@ -41,6 +48,5 @@ class DrugService
   def self.getReviewsForDrug(code_cis)
     Review.where(code_cis: code_cis)
   end
-
 
 end

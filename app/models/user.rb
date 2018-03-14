@@ -29,4 +29,17 @@ class User < ApplicationRecord
     return user
   end
 
+  def interactions
+    codes_cis = self.favorites.where(now: true).collect { |favorite| favorite.code_cis}
+    codes_cis_couples = codes_cis.combination(2).to_a unless codes_cis.size < 2
+    interactions = []
+    unless codes_cis_couples.nil?
+      codes_cis_couples.each do |couple|
+        interaction = DrugService.interactions(couple.first, couple.last)
+        interactions << interaction unless interaction.empty?
+      end
+      interactions
+    end
+  end
+
 end
