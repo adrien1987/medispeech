@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 40px;
   .btn {
     height: 50px;
     width: 50px;
@@ -17,7 +17,7 @@
 }
 
 .home_wrapper {
-  min-height: calc(100vh - 70px);
+  min-height: calc(70vh - 70px);
   width: auto;
   background-color: rgba(0,36,61,0.6);
 }
