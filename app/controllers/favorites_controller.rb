@@ -1,17 +1,23 @@
 class FavoritesController < ApplicationController
   def put_in_favorite
-    codeCIS = params[:code_cis]
-    favorite = Favorite.where(code_cis: codeCIS, user: current_user).first
+    code_CIS = params[:code_cis]
+    operation = "deleted"
+    favorite = Favorite.where(code_cis: code_CIS, user: current_user).first
     if favorite.present?
       favorite.destroy
     else
-      favorite = Favorite.new
-      favorite.code_cis = codeCIS
-      favorite.user = current_user
-      favorite.save
+      add(code_CIS)
+      operation = "created"
     end
-
+    flash[:notice] = "Favorite successfully #{operation}"
     redirect_back(fallback_location: root_path)
+  end
+
+  def add(code_CIS)
+    favorite = Favorite.new
+    favorite.code_cis = code_CIS
+    favorite.user = current_user
+    favorite.save
   end
 
   def now
@@ -21,19 +27,6 @@ class FavoritesController < ApplicationController
       favorite.now = !favorite.now
       favorite.save
     end
-    render json: {}
-  end
-
-  def interactions
-    favorites = Favorite.where(now: true, user: current_user)
-    codes_cis = favorites.collect { |favorite| favorite.code_cis}
-    codes_cis_couples = codes_cis.combination(2).to_a unless codes_cis.size < 2
-    @results = []
-    codes_cis_couples.each do |couple|
-      result = DrugService.interactions(couple.first, couple.last)
-      @results << result unless result.empty?
-    end
-    render json: @results
   end
 
   private

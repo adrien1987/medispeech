@@ -29,29 +29,33 @@
   <div class= "col-xs-12 col-sm-10 col-sm-offset-1">
     <section class="readme-section">
       <h1 class="readme-header">Mes médicaments favoris</h1>
+      <% if @interactions.present? && !@interactions.empty?  %>
       <div class="card ">
         <div class="card-header interactionred">
           Attention: intérations entres vos médicaments !
         </div>
+
         <div class="card-body">
-          <h5 class="card-title">@drug1 et @drug2</h5>
-          <div class="premiereinteration">
-            <p> <strong>Descriptions :</strong> @description</p>
-            <p> <strong>Conseils :</strong> @description</p>
+
+            <%  @interactions.each  do |interaction| %>
+              <%  interaction.each do |hash| %>
+
+                  <h5 class="card-title"><%= hash["nomMedicament1"] %> et <%= hash["nomMedicament2"] %></h5>
+                  <div class="premiereinteration">
+                    <p> <strong>Description :</strong> <%= hash["description"] %></p>
+                    <% unless hash["conseil"].nil? %>
+                    <p> <strong>Conseils :</strong> <%= hash["conseil"] %></p>
+                    <% end %>
+                  </div>
+
+              <% end %>
+            <% end %>
+
           </div>
-          <div class="premiereinteration">
-            <p> <strong>Descriptions :</strong> @description</p>
-            <p> <strong>Conseils :</strong> @description</p>
-          </div>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">@drug1 et @drug3</h5>
-          <div class="premiereinteration">
-            <p> <strong>Descriptions :</strong> @description</p>
-            <p> <strong>Conseils :</strong> @description</p>
-          </div>
-        </div>
       </div>
+      <% end %>
+
+
         <div class="row justifees">
           <% @drugs.each do |drug| %>
           <%= render 'shared/drug_card_item', drug: drug%>
