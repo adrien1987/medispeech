@@ -56,7 +56,7 @@
           <p>Vérifiez vos intérations médicamenteuses:</p>
         </div>
         <div class="switch">
-            <input id="cmn-toggle-<%= drug[:codeCIS] %>" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" onclick="toProfile()"
+            <input id="cmn-toggle-<%= drug[:codeCIS] %>" class="cmn-toggle cmn-toggle-round-flat" type="checkbox"
             data-remote="true" data-url=<%= now_path(drug[:codeCIS]) %> data-method="get"
             <%= 'checked' unless Favorite.find_by(code_cis: drug[:codeCIS]).now == false %> >
           <label for="cmn-toggle-<%= drug[:codeCIS] %>"></label>
@@ -71,9 +71,3 @@
     </div>
   </div>
 </div>
-
-<script>
-function toProfile() {
-    window.location.assign("<%= profile_path %>")
-}
-</script>

@@ -38,8 +38,8 @@ class User < ApplicationRecord
         interaction = DrugService.interactions(couple.first, couple.last)
         interactions << interaction unless interaction.empty?
       end
-      interactions
     end
+    interactions
   end
 
 end
