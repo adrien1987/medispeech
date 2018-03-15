@@ -1,0 +1,8 @@
+
+$('#divinteraction').empty();
+$('#interactionredo').remove();
+document.getElementById("divinteraction").insertAdjacentHTML("beforeend", "<%= j render 'shared/card_interaction', interactions: @interactions  %>");
+
+if ($('#divinteraction').html().length <= 190) {
+  $('#interactionredo').remove();
+}

@@ -8,6 +8,6 @@ class ProfilesController < ApplicationController
     @drugs = []
     unformated_drugs.each { |drug| @drugs << { codeCIS: drug["codeCIS"], denomination: drug["denomination"]} }
     @reviews = Review.where(user: @user)
-    p @interactions = current_user.interactions
+    @interactions = current_user.interactions
   end
 end
