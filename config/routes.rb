@@ -16,4 +16,8 @@ Rails.application.routes.draw do
 
   get 'search', to: 'drugs#search'
 
+  scope :bot do
+    post '/drug_info', to: 'bot#drug_info'
+  end
+
 end

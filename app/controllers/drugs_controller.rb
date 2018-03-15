@@ -27,3 +27,21 @@ class DrugsController < ApplicationController
 
 
 end
+
+# def index
+#   if params[:nlp][:entities][:drugs].first[:value].present?
+#     @response = DrugService.all_drugs(params[:nlp][:entities][:drugs].first[:value])
+#     @drugs = []
+#     @response.each { |drug| @drugs << { codeCIS: drug["codeCIS"], denomination: drug["denomination"]} }
+#     favorites = Favorite.where(user: current_user)
+#     @codes_cis = favorites.collect { |favorite| favorite.code_cis} #array avec la liste des codes
+#   else
+#     @reviews = Review.all.last(10).reverse
+#     @drugs = [{ codeCIS: 0, denomination: 'Je pas connaitre ça!' }]
+#   end
+#
+#   render json: {
+#     replies: @drugs.map { |drug| {type: 'text', content: drug[:denomination]} }
+#   }
+#
+# end
