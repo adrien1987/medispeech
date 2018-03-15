@@ -1,7 +1,5 @@
 
-User.destroy_all
-jane = User.create!(email: "rogue@gmail.com", password: "azerty", first_name: "Jane", last_name: "Colin", username: "alfa")
-luc = User.create!(email: "hermione@gmail.com", password: "azerty", first_name: "Luc", last_name: "Dano", username: "romeo")
+Favorite.destroy_all
 
 
 Review.destroy_all
@@ -13,3 +11,7 @@ review2 = Review.create!(efficacy: 1, description: "Mauvais médoc", security: 1
 print "reviews : "
 p Review.all
 puts "End of review seed"
+
+User.destroy_all
+jane = User.create!(email: "rogue@gmail.com", password: "azerty", first_name: "Jane", last_name: "Colin", username: "alfa")
+luc = User.create!(email: "hermione@gmail.com", password: "azerty", first_name: "Luc", last_name: "Dano", username: "romeo")
