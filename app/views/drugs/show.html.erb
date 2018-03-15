@@ -1,3 +1,8 @@
+<% content_for :meta_title, "#{@drug["denomination"].split(' ').first(2).join(' ')} on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @drug["denomination"] %>
+<% content_for :meta_image, cl_image_path("pills.jpg") %>
+
+
 <div class="container">
   <!-- <h1><%= @drug["denomination"] %></h1> -->
   <div class="row drugheader">

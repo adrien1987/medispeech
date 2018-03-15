@@ -28,32 +28,13 @@
 <div class="container">
   <div class= "col-xs-12 col-sm-10 col-sm-offset-1">
     <section class="readme-section">
-      <h1 class="readme-header">Mes médicaments favoris</h1>
+      <h1 class="readme-header" id="interactioncard">Mes médicaments favoris</h1>
       <% if @interactions.present? && !@interactions.empty?  %>
-      <div class="card ">
-        <div class="card-header interactionred">
-          Attention: intérations entres vos médicaments !
-        </div>
-
-        <div class="card-body">
-
-            <%  @interactions.each  do |interaction| %>
-              <%  interaction.each do |hash| %>
-
-                  <h5 class="card-title"><%= hash["nomMedicament1"] %> et <%= hash["nomMedicament2"] %></h5>
-                  <div class="premiereinteration">
-                    <p> <strong>Description :</strong> <%= hash["description"] %></p>
-                    <% unless hash["conseil"].nil? %>
-                    <p> <strong>Conseils :</strong> <%= hash["conseil"] %></p>
-                    <% end %>
-                  </div>
-
-              <% end %>
-            <% end %>
-
-          </div>
+      <div id="divinteraction">
+      
       </div>
       <% end %>
+
 
 
         <div class="row justifees">
