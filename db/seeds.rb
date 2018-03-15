@@ -13,7 +13,7 @@ p User.all
 puts "End of user seed"
 
 puts "start of review seed"
-review1 = Review.create!(efficacy: 5, description: "Très bon résultats", security: 3,
+review1 = Review.create!(efficacy: 5, description: "Très bons résultats", security: 3,
   code_cis: "62772966", user: jane, denomination: "PARACETAMOL EG 1 g, comprimé")
 review2 = Review.create!(efficacy: 5, description: "Mauvais médoc", security: 1,
   code_cis: "62772966", user: luc, denomination: "PARACETAMOL EG 1 g, comprimé")
@@ -22,22 +22,22 @@ review3 = Review.create!(efficacy: 5, description: "Très efficace", security: 1
 review4 = Review.create!(efficacy: 5, description: "Plus aucun maux de tête", security: 2,
   code_cis: "62772966", user: adrien, denomination: "PARACETAMOL EG 1 g, comprimé")
 
-review5 = Review.create!(efficacy: 5, description: "Je me sens beaucop mieux", security: 1,
+review5 = Review.create!(efficacy: 5, description: "Je me sens beaucoup mieux", security: 1,
   code_cis: "65693901", user: jane, denomination: "PRADAXA 75 mg, gélule")
 review6 = Review.create!(efficacy: 1, description: "A retirer du marché, de l'argent perdu !", security: 1,
   code_cis: "65693901", user: luc, denomination: "PRADAXA 75 mg, gélule")
 review7 = Review.create!(efficacy: 4, description: "A marché en seulement deux jours", security: 1,
   code_cis: "65693901", user: david, denomination: "PRADAXA 75 mg, gélule")
-review8 = Review.create!(efficacy: 5, description: "Bien manger avant chaque prise pour éviter les déagréments", security: 3,
+review8 = Review.create!(efficacy: 5, description: "Bien manger avant chaque prise pour éviter les désagréments", security: 3,
   code_cis: "65693901", user: adrien, denomination: "PRADAXA 75 mg, gélule")
 
 review9 = Review.create!(efficacy: 4, description: "Je recommande ce produit", security: 3,
   code_cis: "66565609", user: jane, denomination: "ASPIRINE RICHARD 500 mg, comprimé")
-review10 = Review.create!(efficacy: 5, description: "Mauvais médoc", security: 1,
+review10 = Review.create!(efficacy: 5, description: "Super médoc", security: 1,
   code_cis: "66565609", user: luc, denomination: "ASPIRINE RICHARD 500 mg, comprimé")
 review11 = Review.create!(efficacy: 3, description: "Ma rage de dents a diparu en 4 heures", security: 2,
   code_cis: "66565609", user: david, denomination: "ASPIRINE RICHARD 500 mg, comprimé")
-review12 = Review.create!(efficacy: 5, description: "Plus de fièvres en seulement une heure", security: 1,
+review12 = Review.create!(efficacy: 5, description: "Plus de fièvre en seulement une heure", security: 1,
   code_cis: "66565609", user: adrien, denomination: "ASPIRINE RICHARD 500 mg, comprimé")
 
 review13 = Review.create!(efficacy: 5, description: "J'ai retrouvé la joie de vivre", security: 5,
