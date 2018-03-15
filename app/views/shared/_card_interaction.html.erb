@@ -5,7 +5,7 @@
   <div class="card-body">
     <% interactions.each  do |interaction| %>
       <% interaction.each do |hash| %>
-      <h5 class="card-title"><%= hash["nomMedicament1"] %> et <%= hash["nomMedicament2"] %></h5>
+      <h5 class="card-title"><%= hash["nomMedicament1"] %> <i class="fa fa-random"></i> <%= hash["nomMedicament2"] %></h5>
       <div class="premiereinteration">
         <p> <strong>Description :</strong> <%= hash["description"] %></p>
         <% unless hash["conseil"].nil? %>
