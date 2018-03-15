@@ -1,4 +1,4 @@
 meta_product_name: "Medispeech"
 meta_title: "Medispeech - Le premier site de notation basé sur votre expérience patient"
 meta_description: "Acccédez à toutes les informations que vous souhaitez à partir de la base de donnée officiele des médicaments et gérez votre prise en fonction des interactions possibles entre vos médicaments. "
-meta_image: "cover.png"                       # should exist in `app/assets/images/`
+meta_image: "pills.jpg"                       # should exist in `app/assets/images/`
